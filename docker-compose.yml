@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  dgraph:
+    image: dgraph/standalone:latest
+    container_name: dgraph
+    restart: unless-stopped
+    ports:
+      - 8000:8000/tcp
+      - 8080:8080/tcp
+      - 9080:9080/tcp
+    volumes:
+      - ./dev/data/dgraph:/dgraph

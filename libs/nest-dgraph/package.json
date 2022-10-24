@@ -1,0 +1,77 @@
+{
+  "name": "@entailapps/nest-dgraph",
+  "version": "0.1.0",
+  "description": "Entail App CIC library that acts as a wrapper between NestJS and DGraph",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "build:watch": "tsc -p tsconfig.build.json",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "lint:ci": "eslint \"{src,test}/**/*.ts\" -f rdjson | reviewdog -f=rdjson -reporter=github-pr-review -fail-on-error",
+    "test": "jest",
+    "test:ci": "jest --ci --reporters=jest-fixed-default-reporter/DefaultReporter --reporters=jest-fixed-default-reporter/SummaryReporter",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/entailapp/backend/tree/develop/libs/nest-dgraph"
+  },
+  "author": "Entail App CIC",
+  "license": "SEE LICENSE IN ../../LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/entailapp/backend/issues"
+  },
+  "homepage": "https://github.com/entailapp/backend/tree/develop/libs/nest-dgraph#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.3.2",
+    "@nestjs/common": "^7.6.15",
+    "@nestjs/core": "^7.6.15",
+    "dgraph-js": "^21.3.1",
+    "@nestjs/config": "^0.6.3",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-formatter-rdjson": "^1.0.5",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.1",
+    "@entailapps/backend-configs": "workspace:*",
+    "@nestjs/testing": "^7.6.15",
+    "rxjs": "^6.6.6",
+    "jest-fixed-default-reporter": "^2.0.1",
+    "jest": "^27.0.4",
+    "ts-jest": "^27.0.3",
+    "node-notifier": "^9.0.0",
+    "@types/google-protobuf": "^3.15.2",
+    "@types/jest": "^26.0.23",
+    "typescript": "^4.3.2",
+    "@types/node": "^15.12.1",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.ts"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "./tsconfig.test.json"
+      }
+    }
+  }
+}

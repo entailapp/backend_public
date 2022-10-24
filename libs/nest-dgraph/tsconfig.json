@@ -1,0 +1,10 @@
+{
+  "extends": "./node_modules/@entailapps/backend-configs/profiles/default/tsconfig.base.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "isolatedModules": true,
+  }
+}

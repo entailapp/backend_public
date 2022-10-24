@@ -1,0 +1,27 @@
+{
+  "name": "@entailapps/backend-configs",
+  "version": "0.1.0",
+  "description": "Heft Rigs for use in Entail App CIC Rush repositories",
+  "scripts": {
+    "build": "",
+    "build:watch": "",
+    "lint": "",
+    "lint:ci": "",
+    "test": "",
+    "test:ci": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/entailapp/backend/tree/develop/libs/configs"
+  },
+  "author": "Entail App CIC",
+  "license": "SEE LICENSE IN ../../LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/entailapp/backend/issues"
+  },
+  "homepage": "https://github.com/entailapp/backend/tree/develop/libs/configs#readme",
+  "devDependencies": {
+    "gts": "~3.1.0",
+    "typescript": "^4.3.2"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "name": "@entailapps/tsrs",
+  "version": "0.1.0",
+  "description": "Entail App CIC TS library aiming to emulate rustlang Result and Option types for typesafe errors",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "build:watch": "tsc -p tsconfig.build.json",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "lint:ci": "eslint \"{src,test}/**/*.ts\" -f rdjson | reviewdog -f=rdjson -reporter=github-pr-review -fail-on-error",
+    "test": "jest",
+    "test:ci": "jest --ci --reporters=jest-fixed-default-reporter/DefaultReporter --reporters=jest-fixed-default-reporter/SummaryReporter",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/entailapp/backend/tree/develop/libs/tsrs"
+  },
+  "author": "Entail App CIC",
+  "license": "SEE LICENSE IN ../../LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/entailapp/backend/issues"
+  },
+  "homepage": "https://github.com/entailapp/backend/tree/develop/libs/tsrs#readme",
+  "devDependencies": {
+    "@entailapps/backend-configs": "workspace:*",
+    "jest": "^27.0.4",
+    "jest-fixed-default-reporter": "^2.0.1",
+    "ts-jest": "^27.0.3",
+    "node-notifier": "^9.0.0",
+    "eslint": "^7.28.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-formatter-rdjson": "^1.0.5",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.1",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.1",
+    "typescript": "^4.3.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.ts"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "./tsconfig.test.json"
+      }
+    }
+  }
+}

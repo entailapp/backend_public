@@ -1,0 +1,119 @@
+type Entry {
+  createdAt
+  updatedAt
+}
+
+type Profile {
+  authId
+  firstName
+  lastName
+  email
+  aliases
+  dob
+  is18
+}
+
+type Alias {
+  username
+  displayName
+  pronouns
+  bio
+  aboutPage
+  avatar
+  banner
+  location
+  website
+  following
+  tags
+  liked
+  boosted
+  shared
+  nsfw
+  isNSFW
+}
+
+type Medium {
+  owners
+  artists
+  type
+  title
+  description
+  text
+  tags
+  alt_text
+  uri
+  children
+}
+
+type Collection {
+  owners
+  title
+  description
+  tags
+  media
+}
+
+type Post {
+  owner
+  mentioned
+  tags
+  title
+  text
+  media
+}
+
+type Tag {
+  name
+  description
+  nsfw
+  official
+  children
+}
+
+owners: [uid] @reverse .
+title: string @index(term) .
+text: string @index(term) .
+description: string @index(term) .
+tags: [uid] @reverse .
+type: string .
+media: [uid] .
+children: [uid] @reverse .
+
+
+createdAt: dateTime .
+updatedAt: dateTime .
+
+authId: string @index(hash) @upsert .
+firstName: string .
+lastName: string .
+email: string @index(hash) @upsert .
+aliases: [uid] @reverse .
+dob: dateTime @index(day) .
+is18: bool .
+
+username: string @index(hash) .
+displayName: string @index(term) .
+pronouns: string .
+bio: string .
+aboutPage: uid .
+avatar: uid .
+banner: uid .
+location: string .
+website: string .
+following: [uid] @reverse @count .
+liked: [uid] @reverse @count .
+boosted: [uid] @reverse @count .
+shared: [uid] @reverse @count .
+isNSFW: bool .
+
+artists: [uid] @reverse .
+alt_text: string .
+uri: string .
+
+name: string @index(exact) .
+
+nsfw: string .
+official: bool .
+
+owner: uid @reverse .
+mentioned: [uid] @reverse .

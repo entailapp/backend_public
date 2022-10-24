@@ -1,0 +1,118 @@
+{
+  "name": "server-core",
+  "version": "0.1.0",
+  "description": "",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/entailapp/backend/tree/develop/apps/server-core"
+  },
+  "author": "Entail App CIC",
+  "license": "SEE LICENSE IN ../../LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/entailapp/backend/issues"
+  },
+  "homepage": "https://github.com/entailapp/backend/tree/develop/apps/server-core#readme",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "build:watch": "",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,test}/**/*.ts\" --fix",
+    "lint:ci": "eslint \"{src,test}/**/*.ts\" -f rdjson | reviewdog -f=rdjson -reporter=github-pr-review -fail-on-error",
+    "test": "jest",
+    "test:ci": "jest --ci --reporters=jest-fixed-default-reporter/DefaultReporter --reporters=jest-fixed-default-reporter/SummaryReporter",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "^7.6.15",
+    "@nestjs/core": "^7.6.15",
+    "@nestjs/mapped-types": "^0.4.1",
+    "@nestjs/platform-express": "^7.6.15",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^6.6.6",
+    "swagger-ui-express": "~4.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@entailapps/backend-configs": "workspace:*",
+    "@entailapps/nest-dgraph": "workspace:*",
+    "@entailapps/tsrs": "workspace:*",
+    "@nestjs/cli": "^7.6.0",
+    "@nestjs/schematics": "^7.3.0",
+    "@nestjs/testing": "^7.6.15",
+    "@types/express": "^4.17.11",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.1",
+    "@types/supertest": "^2.0.10",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "eslint": "^7.28.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-formatter-rdjson": "^1.0.5",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.4",
+    "node-notifier": "^9.0.0",
+    "prettier": "^2.3.1",
+    "supertest": "^6.1.3",
+    "jest-fixed-default-reporter": "^2.0.1",
+    "ts-jest": "^27.0.3",
+    "ts-loader": "^8.0.18",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.3.2",
+    "@nestjs/config": "^0.6.3",
+    "joi": "^17.4.0",
+    "@grpc/grpc-js": "^1.3.2",
+    "nest-raven": "^7.2.0",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "@nestjs/graphql": "^7.10.6",
+    "helmet": "^4.6.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "@nestjs/swagger": "^4.8.0",
+    "@sentry/node": "^6.5.1",
+    "@sentry/tracing": "^6.5.1",
+    "@sentry/types": "^6.5.1",
+    "graphql": "^15.5.0",
+    "apollo-server-core": "^2.25.0",
+    "@types/cookie-parser": "~1.4.2",
+    "@types/compression": "~1.7.0",
+    "dgraph-js": "^21.3.1",
+    "luxon": "^1.27.0",
+    "@types/luxon": "~1.26.5",
+    "webpack": "^5.38.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.ts"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.test.json"
+      }
+    }
+  }
+}

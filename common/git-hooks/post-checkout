@@ -1,0 +1,14 @@
+#!/bin/bash
+readonly branch_name="$(git rev-parse --abbrev-ref HEAD)"
+readonly branch_name_regex="^(develop|master)|((bug|story|task|release|hotfix)\/[a-z]+\/[A-Z]+-[0-9]+(-[A-Za-z]+)+)$"
+
+if [[ -z "${HOOK_CI}" ]]; then
+  if [[ ! $branch_name =~ $branch_name_regex ]]; then
+      printf "Your branch name should match the regular expression: %s\n" "$branch_name_regex"
+      exit 1
+  fi
+  exit 0
+else
+  printf "Running in CI, skipping branch name check"
+  exit 0
+fi
